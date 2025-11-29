@@ -1,2 +1,25 @@
 @import "tailwindcss";
 
+@layer base {
+
+}
+
+@layer components {
+
+  .gameboard-container {
+    @apply border border-black p-2;
+  }
+
+  .player-container {
+    @apply flex flex-col items-center justify-center gap-8;
+  }
+
+  .player-name {
+    @apply text-3xl font-bold;
+  }
+
+  .player-ships {
+    @apply border border-black p-2 w-[50%] h-61;
+  }
+
+}
