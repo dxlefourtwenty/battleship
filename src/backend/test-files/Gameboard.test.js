@@ -33,19 +33,18 @@ test('Placing a ship', () => {
   expect(board[7][6]).toBe('D');
 });
 
-test('Rendering a ship length 3, vertical false', () => {
+test('Rendering a ship length 2, vertical false', () => {
   const gameboard = new Gameboard();
   const board = gameboard.getBoard();
   const destroyer = new Ship('destroyer');
 
   gameboard.placeShip(7, 6, destroyer);
 
-  expect(board[7][5]).toBe('D');
-  expect(board[7][6]).toBe('D');
   expect(board[7][7]).toBe('D');
+  expect(board[7][6]).toBe('D');
 })
 
-test('Rendering a ship length 3, vertical true', () => {
+test('Rendering a ship length 2, vertical true', () => {
   const gameboard = new Gameboard();
   const board = gameboard.getBoard();
   const destroyer = new Ship('destroyer');
@@ -53,9 +52,8 @@ test('Rendering a ship length 3, vertical true', () => {
   destroyer.togglePlacement();
   gameboard.placeShip(7, 6, destroyer);
 
-  expect(board[6][6]).toBe('D');
-  expect(board[7][6]).toBe('D');
   expect(board[8][6]).toBe('D');
+  expect(board[7][6]).toBe('D');
 });
 
 test('Out of bounds correction test 1, \
@@ -63,15 +61,15 @@ test('Out of bounds correction test 1, \
   
   const gameboard = new Gameboard();
   const board = gameboard.getBoard();
-  const ship = new Ship('carrier');
+  const ship = new Ship('aircraft-carrier');
 
   gameboard.placeShip(8, 8, ship);
 
-  expect(board[8][8]).toBe('C');
-  expect(board[8][9]).toBe('C');
-  expect(board[8][7]).toBe('C');
-  expect(board[8][6]).toBe('C');
-  expect(board[8][5]).toBe('C');
+  expect(board[8][8]).toBe('A');
+  expect(board[8][9]).toBe('A');
+  expect(board[8][7]).toBe('A');
+  expect(board[8][6]).toBe('A');
+  expect(board[8][5]).toBe('A');
 });
 
 test('Out of bounds correction test 2, \
@@ -86,13 +84,11 @@ test('Out of bounds correction test 2, \
 
   expect(board[0][0]).toBe('D');
   expect(board[1][0]).toBe('D');
-  expect(board[2][0]).toBe('D');
-  expect(board[3][0]).toBe('D');
 });
 
 test('Receive attack test 1', () => {
   const gameboard = new Gameboard();
-  const ship = new Ship('carrier');
+  const ship = new Ship('aircraft-carrier');
 
   gameboard.placeShip(0, 0, ship);
 
@@ -106,7 +102,7 @@ test('Check if all ships have sunk', () => {
   const gameboard = new Gameboard();
 
   expect(gameboard.allShipsSunk()).toBe(true);
-  const ship = new Ship('watchboat');
+  const ship = new Ship('cruiser');
 
   gameboard.placeShip(0, 0, ship);
   expect(gameboard.allShipsSunk()).toBe(false);

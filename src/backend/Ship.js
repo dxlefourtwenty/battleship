@@ -15,22 +15,30 @@ export default class Ship {
   }
 
   assignStats() {
-    if (this.#type === 'carrier') {
+    if (this.#type === 'aircraft-carrier') {
       this.#health = 5;
       this.#length = 5;
-      this.#stringRep = 'C';
+      this.#stringRep = 'A';
     } else if (this.#type === 'destroyer') {
-      this.#health = 4;
-      this.#length = 4;
+      this.#health = 2;
+      this.#length = 2;
       this.#stringRep = 'D';
-    } else if (this.#type === 'watchboat') {
+    } else if (this.#type === 'cruiser') {
       this.#health = 3;
       this.#length = 3;
       this.#stringRep = 'W';
+    } else if (this.#type === 'submarine') {
+      this.#length = 3;
+      this.#health = 3;
+      this.#stringRep = 'S';
+    } else if (this.#type === 'battleship') {
+      this.#length = 4;
+      this.#health = 4;
+      this.#stringRep = 'B';
     } else {
-      this.#health = 3;
-      this.#length = 3;
-      this.#stringRep = 'W';
+      this.#health = 2;
+      this.#length = 2;
+      this.#stringRep = 'D';
     }
   }
 
@@ -71,5 +79,9 @@ export default class Ship {
 
   getVertical() {
     return this.#isVertical;
+  }
+
+  getPlayer() {
+    return this.#player;
   }
 }

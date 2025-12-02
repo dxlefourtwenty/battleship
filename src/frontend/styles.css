@@ -1,13 +1,18 @@
 @import "tailwindcss";
 
-@layer base {
-
+@layer base {  
+  :root {
+    background-color: rgb(2, 62, 135);
+  }
 }
 
 @layer components {
+  .gameboard-container {
+    @apply border-3 border-black flex items-center justify-center;
+  }
 
   .gameboard-container {
-    @apply border border-black p-2;
+    background-color: rgb(5, 48, 135);
   }
 
   .player-container {
@@ -15,11 +20,18 @@
   }
 
   .player-name {
-    @apply text-3xl font-bold;
+    @apply text-3xl font-bold text-gray-300 text-shadow-black text-shadow-xs;
   }
 
   .player-ships {
-    @apply border border-black p-2 w-[50%] h-61;
+    @apply border-2 border-cyan-600 p-2 w-[50%] h-61;
   }
 
+  .board-row {
+    @apply flex flex-row;
+  }
+
+  .board-cell {
+    @apply border border-black w-12 h-12;
+  }
 }
