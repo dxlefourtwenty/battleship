@@ -8,10 +8,11 @@
 
 @layer components {
   .gameboard-container {
-    @apply border-3 border-black flex items-center justify-center;
+    @apply border-2 border-white flex items-center justify-center;
   }
 
   .gameboard-container {
+    @apply shadow-lg;
     background-color: rgb(5, 48, 135);
   }
 
@@ -24,7 +25,11 @@
   }
 
   .player-ships {
-    @apply border-2 border-cyan-600 p-2 w-[50%] h-61;
+    @apply border-2 border-white shadow-lg;
+  }
+
+  .player-ship-cell {
+    @apply border-gray-500 border w-12 h-12;
   }
 
   .board-row {
@@ -32,6 +37,6 @@
   }
 
   .board-cell {
-    @apply border border-black w-12 h-12;
+    @apply border border-gray-500 w-12 h-12;
   }
 }

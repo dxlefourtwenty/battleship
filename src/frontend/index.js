@@ -7,5 +7,5 @@ import ComputerPlayer from '../backend/ComputerPlayer.js'
 import Board from './Board.js'
 
 Board.renderBoard();
-
+Board.renderPlayerInventories();
 
