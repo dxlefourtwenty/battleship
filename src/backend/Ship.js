@@ -26,7 +26,7 @@ export default class Ship {
     } else if (this.#type === 'cruiser') {
       this.#health = 3;
       this.#length = 3;
-      this.#stringRep = 'W';
+      this.#stringRep = 'C';
     } else if (this.#type === 'submarine') {
       this.#length = 3;
       this.#health = 3;

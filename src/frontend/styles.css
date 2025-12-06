@@ -29,7 +29,7 @@
   }
 
   .player-ship-cell {
-    @apply border-gray-500 border w-12 h-12;
+    @apply border-gray-500 border w-12 h-12 flex justify-center items-center text-white text-xl;
   }
 
   .board-row {

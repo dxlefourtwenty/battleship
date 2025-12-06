@@ -1,4 +1,5 @@
 import Ship from './Ship.js';
+import Globals from './Globals.js';
 
 export default class Inventory {
   #carriers;
@@ -6,40 +7,73 @@ export default class Inventory {
   #cruisers;
   #submarines;
   #destroyers;
+  #inventory;
 
   constructor() {
-    this.#carriers = 1;
-    this.#battleships = 1;
-    this.#cruisers = 2;
-    this.#submarines = 1;
-    this.#destroyers = 1;
+    this.#carriers = [];
+    this.#battleships =  [];
+    this.#cruisers = [];
+    this.#submarines = [];
+    this.#destroyers = [];
+    this.#populateShipSlots();
+
+    this.#inventory = [];
+    this.#populateInventory();
   }
 
-  getCarriers() {
-    return this.#carriers;
+  getCarrierCount() {
+    return this.#carriers.length;
   }
 
-  getBattleships() {
-    return this.#battleships;
+  getBattleshipCount() {
+    return this.#battleships.length;
   }
 
-  getCruisers() {
-    return this.#cruisers;
+  getCruiserCount() {
+    return this.#cruisers.length;
   }
 
-  getSubmarines() {
-    return this.#submarines;
+  getSubmarineCount() {
+    return this.#submarines.length;
   }
 
-  getDestroyers() {
-    return this.#destroyers;
+  getDestroyerCount() {
+    return this.#destroyers.length;
   }
 
-  decrementShipCount(stringRep) {
-    if (stringRep === 'A') this.#carriers--;
-    else if (stringRep === 'B') this.#battleships--;
-    else if (stringRep === 'C') this.#cruisers--;
-    else if (stringRep === 'S') this.#submarines--;
-    else if (stringRep === 'D') this.#destroyers--;
+  #populateShipSlots() {
+    for (let i = 0 ; i < Globals.CARRIER_COUNT; i++) {
+      this.#carriers.push(new Ship('aircraft-carrier'));
+    }
+
+    for (let i = 0 ; i < Globals.BATTLESHIP_COUNT; i++) {
+      this.#carriers.push(new Ship('battleship'));
+    }
+
+    for (let i = 0 ; i < Globals.CRUISER_COUNT; i++) {
+      this.#carriers.push(new Ship('cruiser'));
+    }
+
+    for (let i = 0 ; i < Globals.SUBMARINE_COUNT; i++) {
+      this.#carriers.push(new Ship('submarine'));
+    }
+
+    for (let i = 0 ; i < Globals.DESTROYER_COUNT; i++) {
+      this.#carriers.push(new Ship('destroyer'));
+    }
+  }
+
+  #populateInventory() {
+    this.#inventory.push(
+      this.#carriers,
+      this.#battleships,
+      this.#cruisers,
+      this.#submarines,
+      this.#destroyers
+    )
+  }
+
+  getInventory() {
+    return this.#inventory;
   }
 }
